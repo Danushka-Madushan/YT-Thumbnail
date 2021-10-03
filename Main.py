@@ -9,7 +9,6 @@ def Main(Quality):
 			response = requests.get(f"https://www.youtube.com/oembed?url={a}").json()
 			print(f"\n Title   : {response['title']}")
 			print(f" Channel : {response['author_name']}")
-
 			vid = re.search(r'https?://www.youtube.com/watch\?v=([A-z0-9-_]*)', a).group(1)
 			links = {}
 			links["HD"] = (f"https://img.youtube.com/vi/{vid}/maxresdefault.jpg")
