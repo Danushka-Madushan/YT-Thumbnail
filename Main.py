@@ -9,6 +9,7 @@ def Main(Quality):
 			response = requests.get(f"https://www.youtube.com/oembed?url={a}").json()
 			print(f"\n Title   : {response['title']}")
 			print(f" Channel : {response['author_name']}")
+
 			vid = re.search(r'https?://www.youtube.com/watch\?v=([A-z0-9-_]*)', a).group(1)
 			links = {}
 			links["HD"] = (f"https://img.youtube.com/vi/{vid}/maxresdefault.jpg")
@@ -34,7 +35,7 @@ def Main(Quality):
 			    	print(f" Link : {a}")
 
 			    else:
-			    	print(" Error! Retrying...")
+			    	print(" Error With Video Name! Retrying Using Video ID...")
 			    	urllib.request.urlretrieve(image_url, f"{vid}.jpg")
 			    	size = resx/1024
 			    	print(f' Successfully Dowloaded ({round(size, 2)} KB) ')
